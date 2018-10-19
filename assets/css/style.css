@@ -15,7 +15,7 @@ body{
 
 .jumbotron,
 .display-4,
-.answerOptions {
+.trivia-answer {
     margin-top: 10px;
 }
 
@@ -29,6 +29,7 @@ body{
     background-color: rgba(67, 134, 12, 0.541);
     padding: 0;
 }
+
 
 .currentChoice {
     background: rgba(35, 82, 4, 0.541);
