@@ -1,0 +1,62 @@
+body{
+    background-image: url("..//images/fruitpainting.jpg");
+    background-color: #cccccc;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.container {
+    width: 960px;
+    background: rgba(210, 255, 86, 0.438);
+    padding: 15px;
+}
+
+.jumbotron,
+.display-4,
+.answerOptions {
+    margin-top: 10px;
+}
+
+.jumbotron,
+.card,
+.text-muted {
+    text-align: center;
+}
+
+.jumbotron {
+    background-color: rgba(67, 134, 12, 0.541);
+    padding: 0;
+}
+
+.currentChoice {
+    background: rgba(35, 82, 4, 0.541);
+    color: white;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.display-4 {
+    text-align: right;
+    background: url("https://media.giphy.com/media/ir9U6VNvuh7Fbkr2LE/giphy.gif");
+    background-size: 30%;
+    background-repeat: no-repeat;
+    padding: 65px;
+    margin-left: 15px;
+}
+
+
+/* footer */
+.text-muted {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.363);
+    color: grey;
+    bottom: fixed;
+}
