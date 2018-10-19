@@ -6,7 +6,7 @@ $(document).ready(function () {
             answer: 0,
             question: "What vegetable is thought to keep vampires away?",
             options: ["Garlic", "Cauliflower", "Carrots", "Tomatoes"],
-            photo: "https://media.giphy.com/media/qb9onxyM3R0TC/giphy.gif"
+            photo: "assets/images/garlic.gif"
         },
 
         // Question 2
@@ -14,7 +14,7 @@ $(document).ready(function () {
             answer: 2,
             question: "Which vegetables was given to the winner of an athletic event in ancient Greece?",
             options: ["Peas", "Carrots", "Celery", "Chards"],
-            photo: "https://media.giphy.com/media/11AoUds2mJYk8g/giphy.gif"
+            photo: "assets/images/celery.gif"
         },
 
         // Quesion 3
@@ -22,7 +22,7 @@ $(document).ready(function () {
             answer: 0,
             question: "Which of the following plants does not grow underground?",
             options: ["Green Bean", "Potato", "Onion", "Carrot"],
-            photo: "https://media.giphy.com/media/1jW9O9NaaKXthITEGw/giphy.gif"
+            photo: "assets/images/greenbeans.gif"
         },
 
         // Question 4
@@ -30,15 +30,14 @@ $(document).ready(function () {
             answer: 2,
             question: "What very-hot-tasting edible root is often served as a spicy sauce with roast beef?",
             options: ["Beet", "Turnip", "Horseradish", "Parsnip"],
-            photo: "https://media.giphy.com/media/l4FGBkp8gRpALA7EA/giphy.gif"
-        },
+            photo:"assets/images/horseradish.gif"
 
         // Question 5
         {
             answer: 3,
             question: "Where were potatoes first grown?",
             options: ["Africa", "United State of America", "Ireland", "Andes Moutains, Peru"],
-            photo: "https://media.giphy.com/media/3oEjHQpTJS8nv9RoMU/giphy.gif"
+            photo: "assets/images/PotatoTypes.png"
         },
 
         // Question 6
@@ -46,7 +45,7 @@ $(document).ready(function () {
             answer: 1,
             question: "Which of these varieties of beans is not actually a vegetable?",
             options: ["Green Beans", "Jelly Beans", "Lima Beans", "Garbanzo Beans"],
-            photo: "https://media.giphy.com/media/l0IylqWGqgUPBHaWQ/giphy.gif"
+            photo: "assets/images/jellybean.gif"
         },
 
         // Question 7
@@ -54,7 +53,7 @@ $(document).ready(function () {
             answer: 3,
             question: "How many kernels does the average ear of corn have?",
             options: ["300", "100", "50", "800"],
-            photo: "https://media.giphy.com/media/SGXxg0FJh2p4k9eLfB/giphy.gif"
+            photo: "assets/images/corn.gif"
 
         },
 
@@ -63,7 +62,7 @@ $(document).ready(function () {
             answer: 1,
             question: "What green vegetable do rabbits often eat?",
             options: ["Spinach", "Lettuce", "Celery", "Peppers"],
-            photo: "https://media.giphy.com/media/x8V8iOJfRn1cs/giphy.gif"
+            photo: "assets/images/rabbit.gif"
         },
 
         // Question
@@ -71,7 +70,7 @@ $(document).ready(function () {
             answer: 0,
             question: "What kind of vegetable can you buy a 'head' of?",
             options: ["Lettuce", "Peas", "Peppers", "Carrots"],
-            photo: "https://media.giphy.com/media/x8V8iOJfRn1cs/giphy.gif"
+            photo: "assets/images/lettuceleaves.gif"
         },
 
         // Question 10
@@ -87,7 +86,7 @@ $(document).ready(function () {
             answer: 2,
             question: "Cutting into which of these vetable will often make the eyes water?",
             options: ["Lettuce", "Rhubarb", "Onion", "Asparagus"],
-            photo: "https://media.giphy.com/media/D7CSxMVMvj95e/giphy.gif"
+            photo: "assets/images/onion.gif"
         },
 
         // Question 12
@@ -95,7 +94,7 @@ $(document).ready(function () {
             answer: 1,
             question: "Placing a green tomato into a paper bag helps it to do what?",
             options: ["Grow", "Ripen", "Rot", "Get Mushy"],
-            photo: "https://media.giphy.com/media/9fR4KnJptKY8w/giphy.gif"
+            photo: "assets/imagesripen.gif"
         },
 
         // Question 13
@@ -103,7 +102,7 @@ $(document).ready(function () {
             answer: 0,
             question: "Which tennis-ball sized vegetable popular for dipping actually grows on a thistle?",
             options: ["Artichoke", "Cauliflower", "Brussels Sprout", "Pumpkin"],
-            photo: "https://media.giphy.com/media/ErJfd44bxELjW/giphy.gif"
+            photo: "assets/images/artichoke.gif"
         },
 
         // Question 14
@@ -111,7 +110,7 @@ $(document).ready(function () {
             answer: 1,
             question: "What do Mexican people do with radishes on Christmas Eve?",
             options: ["Eat Raw", "Carve Into Animal Shapes", "Make Radish Stew", "Fight With Them"],
-            photo: "https://media.giphy.com/media/pjcV8IhfaLnCAy5IV9/giphy.gif"
+            photo: "assets/images/radish.gif"
         },
 
         // Question 15
@@ -119,7 +118,7 @@ $(document).ready(function () {
             answer: 0,
             question: "'Aubergine' is another name for which vegetable?",
             options: ["Eggplant", "Tomato", "Artichoke", "Potato"],
-            photo: "https://media.giphy.com/media/l0MYz93uwOgOQmXAc/giphy.gif"
+            photo: "assets/images/eggplant.gif"
         },
     ]
 
@@ -135,17 +134,19 @@ $(document).ready(function () {
     var Qcount = triviaArray.length;
     var quesHolder = [];
 
-    // HIDE DISPLAY ON PAGE
+    
+    //Hide button
     $("#reset").hide();
-    // CLick GetStarted button to start a Game
+    //Start game
     $("#start").on("click", function () {
+        $(this).hide();
         selectQuestion();
         startTimer();
-        $("#start").hide();
         for (var i = 0; i < triviaArray.length; i++) {
             quesHolder.push(triviaArray[i]);
         }
     });
+
     // TIME FUNCTION START HERE--------------------------------------
     // Set function time start
     function startTimer() {
@@ -159,15 +160,14 @@ $(document).ready(function () {
     function countDown() {
         timeLeft.text("Time remaining: " + timer + " secs");
         timer--;
-        // After time out, tell the player that time's up, the page jump to the next question
-        // Display a correct answer
-        // Wait a few second, then show the next answer.
+        // After time out, tell the player that time's up. 
+        // Display a correct answer & the page jump to the next question.
         if (timer === -1) {
             unAnswer++;
             stopTimer();
             $(".trivia-answer").html("<h3>Time's up! The correct answer is: " + Ask.options[Ask.answer] + "</h3>");
-            // undefined??       
         }
+        // Wait a few second, then show the next answer.
     }
     // Set FUnction to stop timer
     function stopTimer() {
@@ -194,43 +194,33 @@ $(document).ready(function () {
         }
     }
 
-
     //Make if statement for userPick === answer
     $(".trivia-answer").on("click", function () {
-        userPick = parseInt($(this).attr("data-id"));
-        console.log("answeroption", this);
-
+        // userPick = parseInt($(this).attr("data-id"));
         //If it's right render the photos key, show a screen congrats, display the next question
         if (userPick === Ask.answer) {
-            stopTimer()
+            stopTimer();
             correct++;
             userPick = "";
             $(".trivia-answer").text("CORRECT!");
-      
+
         } else {
             // if user picked wrong, alert and jump to the next question
             stopTimer();
             inCorrect++;
             userPick = "";
             $(".trivia-answer").text("WRONG! The correct answer is: " + Ask.options[Ask.answer]);
-            nextQ();
         }
     });
 
-
-    //Set function to run next question
-    function nextQ() {
-        Ask++;
-        clearInterval(window.intervalId);
-        timer = 10;
-        timeLeft.text("");
-        setTimeout(function () {
-            selectQuestion();
-            startTimer();
-        })
+    function photo() {
+        var gif = $(".image-change").attr("src" + Ask.photo);
+        
     }
-// reset game 
+
+
+    //   reset
     $("#reset").on("click", function () {
-        startGame();
+
     });
 });
