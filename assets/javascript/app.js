@@ -30,14 +30,15 @@ $(document).ready(function () {
             answer: 2,
             question: "What very-hot-tasting edible root is often served as a spicy sauce with roast beef?",
             options: ["Beet", "Turnip", "Horseradish", "Parsnip"],
-            photo:"assets/images/horseradish.gif"
+            photo: "assets/images/horseradish.gif"
+        },
 
         // Question 5
         {
             answer: 3,
             question: "Where were potatoes first grown?",
             options: ["Africa", "United State of America", "Ireland", "Andes Moutains, Peru"],
-            photo: "assets/images/PotatoTypes.png"
+            photo: "assets/images/PotatoTypes.gif"
         },
 
         // Question 6
@@ -110,7 +111,7 @@ $(document).ready(function () {
             answer: 1,
             question: "What do Mexican people do with radishes on Christmas Eve?",
             options: ["Eat Raw", "Carve Into Animal Shapes", "Make Radish Stew", "Fight With Them"],
-            photo: "assets/images/radish.gif"
+            photo: "assets/images/radish.png"
         },
 
         // Question 15
@@ -129,16 +130,18 @@ $(document).ready(function () {
     var gif = null;
     var timer = 10;
     var timeRunning = false;
-    var indexQ;
+    var indexQ = 0;
     var Ask;
     var Qcount = triviaArray.length;
     var quesHolder = [];
+    var newArr = [];
 
-    
+
     //Hide button
     $("#reset").hide();
     //Start game
     $("#start").on("click", function () {
+        // $(".image-change").attr("src", "assets/images/apple.jpg");
         $(this).hide();
         selectQuestion();
         startTimer();
@@ -165,58 +168,67 @@ $(document).ready(function () {
         if (timer === -1) {
             unAnswer++;
             stopTimer();
-            $(".trivia-answer").html("<h3>Time's up! The correct answer is: " + Ask.options[Ask.answer] + "</h3>");
+            $("#trivia-answer").html("<h3>Time's up! The correct answer is: " + Ask.options[Ask.answer] + "</h3>");
+           selectQuestion();
         }
+
+        //if for userguesses (create bool)
+        // select question 
+
         // Wait a few second, then show the next answer.
     }
-    // Set FUnction to stop timer
+   
     function stopTimer() {
         clearInterval(intervalId);
         timeRunning = false;
     }
-    // END TIME FUNCTION-------------------------------------
+    //-------------------------------------------------------------------------------
 
     // Display Question
-    function selectQuestion(indexQ) {
-        // generate random index question in the array triviaQuestions
-        indexQ = Math.floor(Math.random() * triviaArray.length);
+    function selectQuestion() {
         Ask = triviaArray[indexQ];
-        console.log(Ask.question);
+        indexQ ++; 
+        console.log(Ask.question, "question?");
         $("#trivia-question").html("<h4>" + Ask.question + "</h4>")
         // Answer array and Display it on screen
         for (var i = 0; i < Ask.options.length; i++) {
-            var choicesArray = $("<div>");
+            var choicesArray = $("<button>");
             choicesArray.addClass("currentChoice");
             choicesArray.html(Ask.options[i]);
             choicesArray.attr("data-id", i)
-            $(".trivia-answer").append(choicesArray);
-            console.log(choicesArray);
+            $("#trivia-answer").append(choicesArray);
+            console.log(choicesArray, "choices");
         }
     }
 
     //Make if statement for userPick === answer
-    $(".trivia-answer").on("click", function () {
-        // userPick = parseInt($(this).attr("data-id"));
+    $(document).on('click', '.currentChoice', function () {
+        userPick = parseInt($(this).attr("data-id"));
+        console.log(this, "userpick.............");
+
         //If it's right render the photos key, show a screen congrats, display the next question
         if (userPick === Ask.answer) {
-            stopTimer();
+            // stopTimer();
             correct++;
             userPick = "";
-            $(".trivia-answer").text("CORRECT!");
+            $("#trivia-answer").html("<p>CORRECT!" + "</p>");
 
         } else {
             // if user picked wrong, alert and jump to the next question
-            stopTimer();
+            // stopTimer();
             inCorrect++;
             userPick = "";
-            $(".trivia-answer").text("WRONG! The correct answer is: " + Ask.options[Ask.answer]);
+            $("#trivia-answer").html("<h4>Wrong! The correct answer is: " + Ask.options[Ask.answer] + "</h4>");
+            
         }
     });
 
     function photo() {
-        var gif = $(".image-change").attr("src" + Ask.photo);
-        
+        $(".image-change").html("<img src=" + Ask.photo + ">");
+        newArr.push(Ask);
+        console.log("photo", Ask.photo);
     }
+
 
 
     //   reset
