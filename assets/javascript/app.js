@@ -17,15 +17,7 @@ $(document).ready(function () {
             photo: "assets/images/celery.gif"
         },
 
-        // Quesion 3
-        {
-            answer: 0,
-            question: "Which of the following plants does not grow underground?",
-            options: ["Green Bean", "Potato", "Onion", "Carrot"],
-            photo: "assets/images/greenbeans.gif"
-        },
-
-        // Question 4
+        // Question 3
         {
             answer: 2,
             question: "What very-hot-tasting edible root is often served as a spicy sauce with roast beef?",
@@ -33,7 +25,7 @@ $(document).ready(function () {
             photo: "assets/images/horseradish.gif"
         },
 
-        // Question 5
+        // Question 4
         {
             answer: 3,
             question: "Where were potatoes first grown?",
@@ -41,7 +33,7 @@ $(document).ready(function () {
             photo: "assets/images/PotatoTypes.gif"
         },
 
-        // Question 6
+        // Question 5
         {
             answer: 1,
             question: "Which of these varieties of beans is not actually a vegetable?",
@@ -49,7 +41,7 @@ $(document).ready(function () {
             photo: "assets/images/jellybean.gif"
         },
 
-        // Question 7
+        // Question 6
         {
             answer: 3,
             question: "How many kernels does the average ear of corn have?",
@@ -58,7 +50,7 @@ $(document).ready(function () {
 
         },
 
-        // Question 8
+        // Question 7
         {
             answer: 1,
             question: "What green vegetable do rabbits often eat?",
@@ -66,15 +58,7 @@ $(document).ready(function () {
             photo: "assets/images/rabbit.gif"
         },
 
-        // Question
-        {
-            answer: 0,
-            question: "What kind of vegetable can you buy a 'head' of?",
-            options: ["Lettuce", "Peas", "Peppers", "Carrots"],
-            photo: "assets/images/lettuceleaves.gif"
-        },
-
-        // Question 10
+        // Question 8
         {
             answer: 3,
             question: "Which fruit is usually considered a vegetable and has been cultivated for over 5,000 years?",
@@ -82,7 +66,7 @@ $(document).ready(function () {
             photo: "assets/images/oliveu.gif"
         },
 
-        // Question 11
+        // Question 9
         {
             answer: 2,
             question: "Cutting into which of these vetable will often make the eyes water?",
@@ -90,15 +74,7 @@ $(document).ready(function () {
             photo: "assets/images/onion.gif"
         },
 
-        // Question 12
-        {
-            answer: 1,
-            question: "Placing a green tomato into a paper bag helps it to do what?",
-            options: ["Grow", "Ripen", "Rot", "Get Mushy"],
-            photo: "assets/imagesripen.gif"
-        },
-
-        // Question 13
+        // Question 10
         {
             answer: 0,
             question: "Which tennis-ball sized vegetable popular for dipping actually grows on a thistle?",
@@ -106,7 +82,7 @@ $(document).ready(function () {
             photo: "assets/images/artichoke.gif"
         },
 
-        // Question 14
+        // Question 11
         {
             answer: 1,
             question: "What do Mexican people do with radishes on Christmas Eve?",
@@ -114,7 +90,7 @@ $(document).ready(function () {
             photo: "assets/images/radish.png"
         },
 
-        // Question 15
+        // Question 12
         {
             answer: 0,
             question: "'Aubergine' is another name for which vegetable?",
@@ -127,7 +103,6 @@ $(document).ready(function () {
     var inCorrect = 0;
     var unAnswer = 0;  //time out without the answer
     var userPick = "";
-    var gif = null;
     var timer = 10;
     var timeRunning = false;
     var indexQ = 0;
@@ -135,6 +110,7 @@ $(document).ready(function () {
     var Qcount = triviaArray.length;
     var quesHolder = [];
     var newArr = [];
+
 
 
     //Hide button
@@ -165,16 +141,17 @@ $(document).ready(function () {
     function countDown() {
         timeLeft.text("Time remaining: " + timer + " secs");
         timer--;
-      
+
         if (timer === -1) { // IF TIME RUNS OUT 
             unAnswer++;
             stopTimer();
-            $("#trivia-answer").html("<h3>Time's up! The correct answer is: " + Ask.options[Ask.answer] + "</h3>"); 
-           
-            setTimeout(selectQuestion, 3000);
+            $("#trivia-answer").html("<h3 class='answer'>Time's up! The correct answer is: " + Ask.options[Ask.answer] + "</h3>");
+            $(".image-change").html("<img src= assets/images/wronganswer.gif>");
+            setTimeout(selectQuestion, 4000);
+
         }
     }
-   
+
     function stopTimer() {
         clearInterval(intervalId);
         timer = 10;
@@ -187,7 +164,7 @@ $(document).ready(function () {
         clearDiv();
         startTimer();
         Ask = triviaArray[indexQ];
-        indexQ ++; 
+        indexQ++;
         console.log(Ask.question, "question?");
         $("#trivia-question").html("<h4>" + Ask.question + "</h4>")
         // Answer array and Display it on screen
@@ -200,34 +177,55 @@ $(document).ready(function () {
             console.log(choicesArray, "choices");
         }
     }
-function clearDiv() {
+    function clearDiv() {
         $("#trivia-answer").empty();
         $(".image-change").empty();
-}
+    }
+
     // USER GUESSES
     $(document).on('click', '.currentChoice', function () {
         userPick = parseInt($(this).attr("data-id"));
         console.log(this, "userpick.............");
         stopTimer();
-        
+
+
         //If it's right render the photos key, show a screen congrats, display the next question
         if (userPick === Ask.answer) {
             correct++;
             userPick = "";
-            $("#trivia-answer").html("<h3>CORRECT!" + "</h3>");
-            $(".image-change").append("<img id='img' src=" + Ask.photo + ">");
+            $("#trivia-answer").html("<h3 class='answer'>CORRECT!" + "</h3>");
+            $(".image-change").append("<img id='correct-img' src=" + Ask.photo + ">");
             setTimeout(selectQuestion, 4000);
+
 
         } else {
             // if user picked wrong, alert and jump to the next question
             inCorrect++;
             userPick = "";
-            $("#trivia-answer").html("<h4>Wrong! The correct answer is: " + Ask.options[Ask.answer] + "</h4>");   
-            $(".image-change").html("<img src= assets/images/wronganswer.gif>");
+            $("#trivia-answer").html("<h4 class='answer'>Wrong! The correct answer is: " + Ask.options[Ask.answer] + "</h4>");
+            $(".image-change").html("<img id='correct-img' src= assets/images/cryfruit.gif>");
             setTimeout(selectQuestion, 4000);
 
         }
     });
+
+    // function endGame() {      
+    //         if ((correct + inCorrect + unAnswer) === Qcount) {
+    //             stopTimer();
+    //             clearDiv();
+    //             $("#trivia-question").html("<h3>Game Over!  Here's how you did: </h3>");
+    //             $("#trivia-answer").append("<h4> Correct: " + correct + "</h4>");
+    //             $("#trivia-answer").append("<h4> Incorrect: " + inCorrect + "</h4>");
+    //             $("#trivia-answer").append("<h4> Unanswered: " + unAnswer + "</h4>");
+    //             $("#reset").show();
+    //             correct = 0;
+    //             inCorrect = 0;
+    //             unAnswer = 0;
+    //         } else {
+    //             startTimer();
+    //             selectQuestion();
+    //         }
+    // }
 
 
     //   reset

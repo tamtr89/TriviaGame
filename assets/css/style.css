@@ -4,6 +4,7 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+   
 }
 
 
@@ -17,6 +18,14 @@ body{
 .display-4,
 .trivia-answer {
     margin-top: 10px;
+    font-family: 'Pacifico', cursive;
+}
+
+.display-4 {
+    text-shadow: 
+    -1px -1px 1px rgb(221, 217, 0), 
+    2px 2px 1px #e98c00;
+    color: rgb(1, 56, 1);
 }
 
 .jumbotron,
@@ -30,16 +39,36 @@ body{
     padding: 0;
 }
 
-#img {
+#correct-img {
    margin-left: 10%;
    margin-right: 10%;
    width: 50%;
    height: auto;
+   
 }
 
-#trivia-answer {
+#start {
+    font-weight: bolder;
+    font-size: 2rem;
+}
+#time-left {
+    font-family: 'Electrolize', sans-serif;
+}
+.answer {
     color: yellow;
-    background: rgb(4, 77, 4);
+    background: rgba(4, 77, 4, 0.644);
+    border-radius: 15px;
+    width: 60%;
+    margin: auto;
+ 
+}
+
+.alert-warning {
+    width: 50%;
+    margin: auto;
+    color: rgb(104, 0, 0);
+    font-weight: bolder;
+    font-size: 2rem;
 }
 .currentChoice {
     background: rgba(35, 82, 4, 0.541);
