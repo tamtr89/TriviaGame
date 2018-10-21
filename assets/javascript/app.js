@@ -139,12 +139,13 @@ $(document).ready(function () {
 
     //Hide button
     $("#reset").hide();
+
     //Start game
     $("#start").on("click", function () {
         // $(".image-change").attr("src", "assets/images/apple.jpg");
         $(this).hide();
         selectQuestion();
-        startTimer();
+
         for (var i = 0; i < triviaArray.length; i++) {
             quesHolder.push(triviaArray[i]);
         }
@@ -158,34 +159,33 @@ $(document).ready(function () {
             timeRunning = true;
         }
     }
+
     // Set function time countdown
     var timeLeft = $("#time-left");
     function countDown() {
         timeLeft.text("Time remaining: " + timer + " secs");
         timer--;
-        // After time out, tell the player that time's up. 
-        // Display a correct answer & the page jump to the next question.
-        if (timer === -1) {
+      
+        if (timer === -1) { // IF TIME RUNS OUT 
             unAnswer++;
             stopTimer();
-            $("#trivia-answer").html("<h3>Time's up! The correct answer is: " + Ask.options[Ask.answer] + "</h3>");
-           selectQuestion();
+            $("#trivia-answer").html("<h3>Time's up! The correct answer is: " + Ask.options[Ask.answer] + "</h3>"); 
+           
+            setTimeout(selectQuestion, 3000);
         }
-
-        //if for userguesses (create bool)
-        // select question 
-
-        // Wait a few second, then show the next answer.
     }
    
     function stopTimer() {
         clearInterval(intervalId);
+        timer = 10;
         timeRunning = false;
     }
     //-------------------------------------------------------------------------------
 
     // Display Question
     function selectQuestion() {
+        clearDiv();
+        startTimer();
         Ask = triviaArray[indexQ];
         indexQ ++; 
         console.log(Ask.question, "question?");
@@ -200,35 +200,34 @@ $(document).ready(function () {
             console.log(choicesArray, "choices");
         }
     }
-
-    //Make if statement for userPick === answer
+function clearDiv() {
+        $("#trivia-answer").empty();
+        $(".image-change").empty();
+}
+    // USER GUESSES
     $(document).on('click', '.currentChoice', function () {
         userPick = parseInt($(this).attr("data-id"));
         console.log(this, "userpick.............");
-
+        stopTimer();
+        
         //If it's right render the photos key, show a screen congrats, display the next question
         if (userPick === Ask.answer) {
-            // stopTimer();
             correct++;
             userPick = "";
-            $("#trivia-answer").html("<p>CORRECT!" + "</p>");
+            $("#trivia-answer").html("<h3>CORRECT!" + "</h3>");
+            $(".image-change").append("<img id='img' src=" + Ask.photo + ">");
+            setTimeout(selectQuestion, 4000);
 
         } else {
             // if user picked wrong, alert and jump to the next question
-            // stopTimer();
             inCorrect++;
             userPick = "";
-            $("#trivia-answer").html("<h4>Wrong! The correct answer is: " + Ask.options[Ask.answer] + "</h4>");
-            
+            $("#trivia-answer").html("<h4>Wrong! The correct answer is: " + Ask.options[Ask.answer] + "</h4>");   
+            $(".image-change").html("<img src= assets/images/wronganswer.gif>");
+            setTimeout(selectQuestion, 4000);
+
         }
     });
-
-    function photo() {
-        $(".image-change").html("<img src=" + Ask.photo + ">");
-        newArr.push(Ask);
-        console.log("photo", Ask.photo);
-    }
-
 
 
     //   reset

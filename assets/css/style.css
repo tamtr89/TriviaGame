@@ -30,7 +30,17 @@ body{
     padding: 0;
 }
 
+#img {
+   margin-left: 10%;
+   margin-right: 10%;
+   width: 50%;
+   height: auto;
+}
 
+#trivia-answer {
+    color: yellow;
+    background: rgb(4, 77, 4);
+}
 .currentChoice {
     background: rgba(35, 82, 4, 0.541);
     color: white;
@@ -41,6 +51,8 @@ body{
     margin-left: auto;
     margin-right: auto;
 }
+
+
 .display-4 {
     text-align: right;
     background: url("https://media.giphy.com/media/ir9U6VNvuh7Fbkr2LE/giphy.gif");
