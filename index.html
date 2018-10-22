@@ -21,7 +21,10 @@
     <div class="container">
         <div class="jumbotron jumbotron-fluid" id="gif">
             <h1 class="display-4">Trivia Game</h1>
-
+            <button class="btn btn-warning btn-xs theme-button">
+                <span class="fa fa-music"></span> Play Theme!</button>
+            <button class="btn btn-secondary btn-xs pause-button">
+                <span class="fa fa-pause"></span> Pause Song</button>
         </div>
 
         <!-- Body -->
@@ -32,6 +35,7 @@
                         <h3 class="card-title">
                             <button type="button" class="btn btn-success" id="start">Get Started</button>
                         </h3>
+
                         <div class="alert alert-warning" role="alert">
                             <!--time remaining-->
                             <span id="time-left"></span>
@@ -48,7 +52,7 @@
                             </div>
                             <!-- Win Image -->
                             <div class="image-change"></div>
-                            
+
                         </div>
                         <button type="button" class="btn btn-secondary" id="reset">Play Again?</button>
                     </div>

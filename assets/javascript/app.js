@@ -160,6 +160,16 @@ $(document).ready(function () {
     }
     //-------------------------------------------------------------------------------
 
+    // Background Audio
+    var soundElement = document.createElement("audio");
+    soundElement.setAttribute("src", "assets/bensound-littleidea.mp3")
+    // Theme Button
+    $(".theme-button").on("click", function () {
+        soundElement.play();
+    });
+    $(".pause-button").on("click", function () {
+        soundElement.pause();
+    });
 
     // Display Question
     function selectQuestion() {

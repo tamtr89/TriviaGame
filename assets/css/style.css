@@ -94,6 +94,9 @@ body{
     margin-left: 15px;
 }
 
+.btn-xs {
+    margin-bottom: 5px;
+}
 
 /* footer */
 .text-muted {
