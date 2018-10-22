@@ -4,7 +4,8 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-   
+   font-family: 'Source Sans Pro', sans-serif;
+  
 }
 
 
@@ -51,16 +52,17 @@ body{
     font-weight: bolder;
     font-size: 2rem;
 }
+
 #time-left {
     font-family: 'Electrolize', sans-serif;
 }
+
 .answer {
     color: yellow;
     background: rgba(4, 77, 4, 0.644);
     border-radius: 15px;
     width: 60%;
     margin: auto;
- 
 }
 
 .alert-warning {
@@ -71,7 +73,7 @@ body{
     font-size: 2rem;
 }
 .currentChoice {
-    background: rgba(35, 82, 4, 0.541);
+    background: rgba(49, 90, 22, 0.541);
     color: white;
     padding: 5px;
     margin: 5px;
@@ -79,6 +81,7 @@ body{
     width: 70%;
     margin-left: auto;
     margin-right: auto;
+    font-weight: bold;
 }
 
 

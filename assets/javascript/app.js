@@ -41,62 +41,62 @@ $(document).ready(function () {
             photo: "assets/images/jellybean.gif"
         },
 
-        // // Question 6
-        // {
-        //     answer: 3,
-        //     question: "How many kernels does the average ear of corn have?",
-        //     options: ["300", "100", "50", "800"],
-        //     photo: "assets/images/corn.gif"
+        // Question 6
+        {
+            answer: 3,
+            question: "How many kernels does the average ear of corn have?",
+            options: ["300", "100", "50", "800"],
+            photo: "assets/images/corn.gif"
 
-        // },
+        },
 
-        // // Question 7
-        // {
-        //     answer: 1,
-        //     question: "What green vegetable do rabbits often eat?",
-        //     options: ["Spinach", "Lettuce", "Celery", "Peppers"],
-        //     photo: "assets/images/rabbit.gif"
-        // },
+        // Question 7
+        {
+            answer: 1,
+            question: "What green vegetable do rabbits often eat?",
+            options: ["Spinach", "Lettuce", "Celery", "Peppers"],
+            photo: "assets/images/rabbit.gif"
+        },
 
-        // // Question 8
-        // {
-        //     answer: 3,
-        //     question: "Which fruit is usually considered a vegetable and has been cultivated for over 5,000 years?",
-        //     options: ["Banana", "Lime", "Watermelon", "Olive"],
-        //     photo: "assets/images/oliveu.gif"
-        // },
+        // Question 8
+        {
+            answer: 3,
+            question: "Which fruit is usually considered a vegetable and has been cultivated for over 5,000 years?",
+            options: ["Banana", "Lime", "Watermelon", "Olive"],
+            photo: "assets/images/oliveu.gif"
+        },
 
-        // // Question 9
-        // {
-        //     answer: 2,
-        //     question: "Cutting into which of these vetable will often make the eyes water?",
-        //     options: ["Lettuce", "Rhubarb", "Onion", "Asparagus"],
-        //     photo: "assets/images/onion.gif"
-        // },
+        // Question 9
+        {
+            answer: 2,
+            question: "Cutting into which of these vetable will often make the eyes water?",
+            options: ["Lettuce", "Rhubarb", "Onion", "Asparagus"],
+            photo: "assets/images/onion.gif"
+        },
 
-        // // Question 10
-        // {
-        //     answer: 0,
-        //     question: "Which tennis-ball sized vegetable popular for dipping actually grows on a thistle?",
-        //     options: ["Artichoke", "Cauliflower", "Brussels Sprout", "Pumpkin"],
-        //     photo: "assets/images/artichoke.gif"
-        // },
+        // Question 10
+        {
+            answer: 0,
+            question: "Which tennis-ball sized vegetable popular for dipping actually grows on a thistle?",
+            options: ["Artichoke", "Cauliflower", "Brussels Sprout", "Pumpkin"],
+            photo: "assets/images/artichoke.gif"
+        },
 
-        // // Question 11
-        // {
-        //     answer: 1,
-        //     question: "What do Mexican people do with radishes on Christmas Eve?",
-        //     options: ["Eat Raw", "Carve Into Animal Shapes", "Make Radish Stew", "Fight With Them"],
-        //     photo: "assets/images/radish.png"
-        // },
+        // Question 11
+        {
+            answer: 1,
+            question: "What do Mexican people do with radishes on Christmas Eve?",
+            options: ["Eat Raw", "Carve Into Animal Shapes", "Make Radish Stew", "Fight With Them"],
+            photo: "assets/images/radish.png"
+        },
 
-        // // Question 12
-        // {
-        //     answer: 0,
-        //     question: "'Aubergine' is another name for which vegetable?",
-        //     options: ["Eggplant", "Tomato", "Artichoke", "Potato"],
-        //     photo: "assets/images/eggplant.gif"
-        // },
+        // Question 12
+        {
+            answer: 0,
+            question: "'Aubergine' is another name for which vegetable?",
+            options: ["Eggplant", "Tomato", "Artichoke", "Potato"],
+            photo: "assets/images/eggplant.gif"
+        },
     ]
 
     var correct = 0;
@@ -168,7 +168,7 @@ $(document).ready(function () {
         Ask = triviaArray[indexQ];
         indexQ++;
         console.log(Ask.question, "question?");
-        $("#trivia-question").html("<h4>" + Ask.question + "</h4>")
+        $("#trivia-question").html("<h3>" + Ask.question + "</h3>")
         // Answer array and Display it on screen
         for (var i = 0; i < Ask.options.length; i++) {
             var choicesArray = $("<button>");
@@ -219,7 +219,7 @@ $(document).ready(function () {
             if ((correct + inCorrect + unAnswer) === Qcount) {
                 console.log("This should equal 12: ", correct + inCorrect + unAnswer);
                 stopTimer();
-    
+
                 $("#trivia-question").html("<h3>Game Over!  Here's how you did: </h3>");
                 $("#trivia-answer").append("<h4> Correct: " + correct + "</h4>");
                 $("#trivia-answer").append("<h4> Incorrect: " + inCorrect + "</h4>");
@@ -236,10 +236,12 @@ $(document).ready(function () {
     //   reset
     $("#reset").on("click", function () {
         $("#reset").hide();
-        clearDiv();
+
         selectQuestion();
         for (var i = 0; i < triviaArray.length; i++) {
-            quesHolder.push(triviaArray[i]);
+            triviaArray.push(quesHolder[i]);
         }
-    });
+
+
+    })
 });
