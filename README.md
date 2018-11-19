@@ -21,4 +21,6 @@ On the final screen, show the number of correct answers, incorrect answers, and 
       <li>jQuery
         <li>Javascript
           
-          <h4>DEMO:</h4>
+          
+<h4>Demo:</h4>
+https://tamtr89.github.io/TriviaGame/
