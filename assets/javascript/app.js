@@ -110,9 +110,6 @@ $(document).ready(function () {
     var Qcount = triviaArray.length;
     var quesHolder = [];
 
-
-
-
     //Hide button
     $("#reset").hide();
 
@@ -243,15 +240,4 @@ $(document).ready(function () {
         }, 4000);
     }
 
-    //   reset
-    $("#reset").on("click", function () {
-        $("#reset").hide();
-
-        selectQuestion();
-        for (var i = 0; i < triviaArray.length; i++) {
-            triviaArray.push(quesHolder[i]);
-        }
-
-
-    })
 });
